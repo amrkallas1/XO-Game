@@ -7,7 +7,7 @@ let winx=[];
 let x=0;
 let wino=[];
 let o=0;
-let end=0;
+let end=0,xo=0;
 let player = document.createElement("span");
 function selectUser() {
   turn.forEach((ele) => {
@@ -50,13 +50,13 @@ function play(id) {
                 }
                 if(x==3){
                     document.querySelector(".title").innerHTML=`<span>X</span> Winner`;
-                    document.body.style.pointerEvents="none"
+                    document.body.style.pointerEvents="none";
+                    xo=x;
                 }else{
                     x=0
                 }
             }
         }
-        
     }
 
     else if(box.classList.contains("O")){
@@ -72,15 +72,15 @@ function play(id) {
                 }
                 if(o==3){
                     document.querySelector(".title").innerHTML=`<span>O</span> Winner`;
-                    document.body.style.pointerEvents="none"
+                    document.body.style.pointerEvents="none";
+                    xo=o
                 }else{
                     o=0
                 }
             }
-        }
-        
+        }   
     }
-    if(end==9){
+    if(end==9 &&xo!=3){
         document.querySelector(".title").innerHTML=`<span>There is no winner</span>`;
     }
     });
